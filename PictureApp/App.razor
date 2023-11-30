@@ -1,4 +1,6 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿@using PictureApp.Shared.Pages
+<Router AppAssembly="@typeof(App).Assembly" 
+        AdditionalAssemblies="new []{typeof(About).Assembly}">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
         <FocusOnNavigate RouteData="@routeData" Selector="h1"/>

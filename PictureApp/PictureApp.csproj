@@ -11,4 +11,14 @@
       <PackageReference Include="MudBlazor" Version="6.11.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\PictureApp.Shared\PictureApp.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\.DS_Store" />
+      <_ContentIncludedByDefault Remove="wwwroot\favicon.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\images\fullstack-logo.png" />
+    </ItemGroup>
+
 </Project>
