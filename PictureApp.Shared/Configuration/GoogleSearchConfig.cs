@@ -1,4 +1,4 @@
-namespace PictureApp.Configuration;
+namespace PictureApp.Shared.Configuration;
 
 public class GoogleSearchConfig
 {

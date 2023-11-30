@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace PictureApp.Models;
+namespace PictureApp.Shared.Models;
 
 public partial class PictureQueryResults
 {

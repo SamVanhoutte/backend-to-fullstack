@@ -1,9 +1,6 @@
-namespace PictureApp.Models;
-
-using System;
-using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Globalization;
+
+namespace PictureApp.Shared.Models;
 
 public partial class Image
 {

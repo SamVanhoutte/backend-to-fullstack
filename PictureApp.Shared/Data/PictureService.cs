@@ -1,10 +1,10 @@
 using Flurl;
 using Flurl.Http;
 using Microsoft.Extensions.Options;
-using PictureApp.Configuration;
-using PictureApp.Models;
+using PictureApp.Shared.Configuration;
+using PictureApp.Shared.Models;
 
-namespace PictureApp.Data;
+namespace PictureApp.Shared.Data;
 
 public class PictureService
 {

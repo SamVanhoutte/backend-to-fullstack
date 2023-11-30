@@ -1,4 +1,4 @@
-namespace PictureApp.Data;
+namespace PictureApp.Shared.Data;
 
 public class WeatherForecast
 {

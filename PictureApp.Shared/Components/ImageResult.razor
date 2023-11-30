@@ -1,0 +1,20 @@
+@using PictureApp.Shared.Data
+<MudCard>
+    <MudCardMedia Image="@Pic.ImageUrl" Height="200"/>
+    <MudCardContent>
+        <MudText Typo="Typo.caption" Align="Align.Center">@Pic.Source</MudText>
+        <MudText Typo="Typo.body1">@Pic.Description</MudText>
+        <MudText Typo="Typo.body2">@Pic.FileType</MudText>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Text" Href="@Pic.ImageUrl" Target="_blank" Color="Color.Primary">View</MudButton>
+        <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+    </MudCardActions>
+</MudCard>
+
+@code {
+
+    [Parameter]
+    public Picture Pic { get; set; }
+
+}

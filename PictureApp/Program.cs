@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using PictureApp.Data;
 using MudBlazor.Services;
-using PictureApp.Configuration;
+using PictureApp.Shared.Configuration;
+using PictureApp.Shared.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
