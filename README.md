@@ -16,3 +16,6 @@ A repo with samples for the "from Backend to Full stack" session
 
 - All details on [Mudblazor website](https://mudblazor.com/getting-started/installation)
 - Install `MudBlazor` nuget package
+- Add scripts & font references to `_Host.cshtml`
+- Inject services with `builder.Services.AddMudServices();`
+

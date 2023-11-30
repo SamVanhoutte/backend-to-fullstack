@@ -11,6 +11,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+**/appsettings.Development.json 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -398,3 +399,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+PictureApp/appsettings.Development.json

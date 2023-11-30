@@ -2,16 +2,19 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using PictureApp.Data;
 using MudBlazor.Services;
+using PictureApp.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.Configure<GoogleSearchConfig>(options =>
+    builder.Configuration.GetSection("Google").Bind(options));
 builder.Services.AddMudServices();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
-
+builder.Services.AddSingleton<PictureService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
