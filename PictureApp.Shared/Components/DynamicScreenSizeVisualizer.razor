@@ -1,12 +1,15 @@
 @implements IBrowserViewportObserver
 @implements IAsyncDisposable
+@inject IAppRuntime AppRuntime
 @inject IBrowserViewportService BrowserViewportService
 @using MudBlazor.Services
+@using PictureApp.Shared.Services
 <MudExpansionPanels>
     <MudExpansionPanel Text="Screen details">
         <MudText Typo="Typo.body1">@($"{Breakpoint} - width: {Width} x height: {Height}")</MudText>
     </MudExpansionPanel>
 </MudExpansionPanels>
+
 @code {
     public Breakpoint Breakpoint { get; private set; }
     public int Width { get; private set; }
@@ -21,8 +24,11 @@
 
         await base.OnAfterRenderAsync(firstRender);
     }
-    
-    public async ValueTask DisposeAsync() => await BrowserViewportService.UnsubscribeAsync(this);
+
+    public async ValueTask DisposeAsync()
+    {
+        await BrowserViewportService.UnsubscribeAsync(this);
+    }
 
     Guid IBrowserViewportObserver.Id { get; } = Guid.NewGuid();
 
@@ -34,9 +40,18 @@
 
     Task IBrowserViewportObserver.NotifyBrowserViewportChangeAsync(BrowserViewportEventArgs browserViewportEventArgs)
     {
-        Width = browserViewportEventArgs.BrowserWindowSize.Width;
-        Height = browserViewportEventArgs.BrowserWindowSize.Height;
-        Breakpoint = browserViewportEventArgs.Breakpoint;
-        return InvokeAsync(StateHasChanged);
+        try
+        {
+            Width = browserViewportEventArgs.BrowserWindowSize.Width;
+            Height = browserViewportEventArgs.BrowserWindowSize.Height;
+            Breakpoint = browserViewportEventArgs.Breakpoint;
+            return InvokeAsync(StateHasChanged);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        return Task.CompletedTask;
     }
+
 }

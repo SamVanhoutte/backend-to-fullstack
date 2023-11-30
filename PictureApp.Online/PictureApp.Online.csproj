@@ -4,6 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>PictureApp</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,6 +19,10 @@
       <_ContentIncludedByDefault Remove="wwwroot\.DS_Store" />
       <_ContentIncludedByDefault Remove="wwwroot\favicon.png" />
       <_ContentIncludedByDefault Remove="wwwroot\images\fullstack-logo.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Components\" />
     </ItemGroup>
 
 </Project>
