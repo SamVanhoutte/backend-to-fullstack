@@ -1,0 +1,27 @@
+@using Microsoft.Extensions.Options
+@using PictureApp.Shared.Configuration
+@inject IOptions<GoogleSearchConfig> GoogleSearchConfig
+@if (configValid.HasValue)
+{
+    <div class="d-flex">
+        @if (configValid.Value)
+        {
+            <MudIcon Icon="@Icons.Material.Filled.Check" Color="Color.Success"/>
+            <MudText id="ConfigValue" Color="Color.Success">Configuration valid!</MudText>
+        }
+        else
+        {
+            <MudIcon Icon="@Icons.Material.Filled.Error" Color="Color.Error"/>
+            <MudText id="ConfigValue" Color="Color.Error">Configuration invalid!</MudText>
+        }
+    </div>
+}
+@code {
+    bool? configValid = false;
+    protected override void OnInitialized()
+    {
+        configValid = !string.IsNullOrEmpty(GoogleSearchConfig?.Value?.ApiKey);
+        base.OnInitialized();
+    }
+
+}

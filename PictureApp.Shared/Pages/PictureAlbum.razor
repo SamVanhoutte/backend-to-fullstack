@@ -1,0 +1,57 @@
+@page "/pics"
+@page "/pics/{SearchTerm}"
+@using PictureApp.Shared.Data
+@inject PictureService PictureService
+<MudGrid>
+    <MudItem xs="12">
+        <MudText Typo="Typo.h1">Picture overview</MudText>
+    </MudItem>
+    <MudItem xs="12">
+        <DynamicScreenSizeVisualizer></DynamicScreenSizeVisualizer>
+    </MudItem>
+    @if (pictures != null)
+    {
+        @foreach (var picture in pictures)
+        {
+            <MudItem xs="12" sm="6" md="4" lg="3">
+                <ImageResult Pic="@picture"/>
+            </MudItem>
+        }
+    }
+    else
+    {
+        <MudItem xs="12">
+            @if (string.IsNullOrEmpty(errorMessage))
+            {
+                <MudText Typo="Typo.caption" Color="Color.Warning">Pictures loading</MudText>
+            }
+            else
+            {
+                <MudText Typo="Typo.caption" Color="Color.Warning">@errorMessage</MudText>
+            }
+        </MudItem>
+    }
+
+</MudGrid>
+
+@code {
+
+    [Parameter]
+    public string? SearchTerm { get; set; }
+
+    string? errorMessage;
+    List<Picture> pictures;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            pictures = await PictureService.PickPicturesAsync(SearchTerm ?? "Bikepacking", 8);
+        }
+        catch (Exception e)
+        {
+            errorMessage = e.Message;
+        }
+        await base.OnInitializedAsync();
+    }
+}
