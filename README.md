@@ -22,3 +22,7 @@ A repo with samples for the "from Backend to Full stack" session
 ## MAUI : running with hot reload
 
 dotnet watch build -t:Run -f:net7.0-ios -p:_DeviceName=:v2:udid=F80E4473-EE76-456E-B9E8-3C06CC1BD6E8
+
+## Front end testing with Cypress.io
+
+`npx cypress open`

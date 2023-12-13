@@ -1,0 +1,41 @@
+@page "/counter"
+<MudGrid>
+    <MudItem xs="12">
+        <MudText Typo="Typo.h1">The counter</MudText>
+    </MudItem>
+    <MudItem xs="6">
+        <MudButton id="increase" Color="Color.Secondary" Variant="Variant.Filled" OnClick="Increase">Increase</MudButton>
+        <MudButton id="decrease" Color="Color.Warning" Variant="Variant.Filled" OnClick="Decrease">Decrease</MudButton>
+    </MudItem>
+    <MudItem xs="6">
+        <MudButton id="reset" Variant="Variant.Filled" OnClick="Reset">Reset</MudButton>
+    </MudItem>
+    <MudItem xs="12">
+        <MudText id="counter" Typo="Typo.h2">Current count: @counter</MudText>        
+    </MudItem>
+</MudGrid>
+
+@code {
+    int counter = 0;
+
+    protected override void OnInitialized()
+    {
+        counter = 0;
+    }
+
+    private void Reset()
+    {
+        counter=0;
+    }
+    
+    private void Increase()
+    {
+        counter++;
+    }
+    
+    private void Decrease()
+    {
+        if(counter > 0)
+            counter--;
+    }
+}
