@@ -15,15 +15,38 @@ describe('template spec', () => {
     cy.get('#logo').should('have.attr', 'src', '_content/PictureApp.Shared/images/fullstack-logo.png')
   })
 
+
+
   /* ==== Test Created with Cypress Studio ==== */
-  it('Click through', function() {
+  it('Counter test', function() {
     /* ==== Generated with Cypress Studio ==== */
-    cy.visit('http://localhost:5156/pics/beach');
-    cy.get('[d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"]').click();
-    cy.get('.mud-expand-panel-content > .mud-typography').click();
-    cy.get('.mud-expand-panel-content > .mud-typography').click();
-    cy.get('.mud-expand-panel-content > .mud-typography').click();
-    cy.get(':nth-child(4) > .mud-paper > .mud-card-actions > a.mud-button-root > .mud-button-label').click();
+    cy.visit('http://localhost:5156/counter');
+    cy.get('#reset > .mud-button-label').click();// Increase
+    cy.wait(50);
+    cy.get('#increase > .mud-button-label').click();// Increase
+    cy.wait(50);
+    cy.get('#increase > .mud-button-label').click();// Increase
+    cy.wait(50);
+    cy.get('#increase > .mud-button-label').click();// Increase
+    cy.wait(50);
+    cy.get('#decrease > .mud-button-label').click();// Decrease
+    cy.get('#counter').should('have.text', 'Current count: 2');
+
+    /* ==== End Cypress Studio ==== */
+  });
+
+  /* ==== Test Created with Cypress Studio ==== */
+  it('Clodubrew', function() {
+    /* ==== Generated with Cypress Studio ==== */
+    cy.visit('http://localhost:5156/counter');
+    cy.get('#reset > .mud-button-label').click();
+    cy.get('#decrease > .mud-button-label').click();
+    cy.get('#increase > .mud-button-label').click();
+    cy.get('#increase > .mud-button-label').click();
+    cy.get('#increase > .mud-button-label').click();
+    cy.get('#decrease > .mud-button-label').click();
+    cy.get('#increase').click();
+    cy.get('.mud-grid > :nth-child(4)').click();
     /* ==== End Cypress Studio ==== */
   });
 })
