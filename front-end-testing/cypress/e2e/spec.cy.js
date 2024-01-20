@@ -35,19 +35,5 @@ describe('template spec', () => {
     /* ==== End Cypress Studio ==== */
   });
 
-  /* ==== Test Created with Cypress Studio ==== */
-  it('Clodubrew', function() {
-    /* ==== Generated with Cypress Studio ==== */
-    cy.visit('http://localhost:5156/counter');
-    cy.get('#reset > .mud-button-label').click();
-    cy.get('#decrease > .mud-button-label').click();
-    cy.get('#increase > .mud-button-label').click();
-    cy.get('#increase > .mud-button-label').click();
-    cy.get('#increase > .mud-button-label').click();
-    cy.get('#decrease > .mud-button-label').click();
-    cy.get('#increase').click();
-    cy.get('.mud-grid > :nth-child(4)').click();
-    /* ==== End Cypress Studio ==== */
-  });
 })
 
